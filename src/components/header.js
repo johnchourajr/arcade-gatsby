@@ -42,7 +42,7 @@ const Header = ({ siteTitle }) => (
                 }}
               >
               {!isAuthenticated
-                ? <>
+                ? <React.Fragment>
                     <Link
                       to="/account/login"
                       style={{
@@ -57,8 +57,8 @@ const Header = ({ siteTitle }) => (
                       >
                         Sign Up
                     </Link>
-                  </>
-                : <>
+                  </React.Fragment>
+                : <React.Fragment>
                     <Link
                       to="/account"
                     >
@@ -66,7 +66,7 @@ const Header = ({ siteTitle }) => (
                     </Link>
                     &nbsp;
                     <Logout />
-                  </>
+                  </React.Fragment>
               }
                 <CartLink />
               </div>

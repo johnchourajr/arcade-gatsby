@@ -2,6 +2,7 @@ import React from 'react'
 import RemoveProduct from './RemoveProduct'
 
 class CartTable extends React.Component {
+
     render() {
         if (!this.props.products) {
             return <p>Your cart is currently empty.</p>
@@ -15,13 +16,13 @@ class CartTable extends React.Component {
                         <li>SKU: {node.variant.sku}</li>
                         {
                             node.variant.selectedOptions.map(option => {
-                                return <li>{option.name}: {option.value}</li>;
+                                return <li key={option.name}> {option.name}: {option.value}</li>;
                             })
                         }
                     </ul>
                 </td>
                 <td>
-                    <p>Qty: <input type="number" value={node.quantity} /></p>
+                    <p>Qty: <input type="number" defaultValue={node.quantity}/></p>
                 </td>
                 <td>
                     <p>{node.variant.price}</p>
@@ -33,7 +34,7 @@ class CartTable extends React.Component {
         ))
 
         return (
-            <>
+            <React.Fragment>
                 <table style={{
                     display: 'flex',
                     flexWrap: 'wrap',
@@ -59,7 +60,7 @@ class CartTable extends React.Component {
                         </tr>
                     </tfoot>
                 </table>
-            </>
+            </React.Fragment>
         )
     }
 }

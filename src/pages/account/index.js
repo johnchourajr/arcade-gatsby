@@ -56,7 +56,7 @@ class Account extends React.Component {
                                 let greeting = `Welcome back!`
 
                                 if (loading) return (
-                                    <>
+                                    <React.Fragment>
                                         <p>{greeting}</p>
 
                                         <h2>Account Info</h2>
@@ -78,7 +78,7 @@ class Account extends React.Component {
                                             <h3>Order History</h3>
                                             <p></p>
                                         </div>
-                                    </>
+                                    </React.Fragment>
                                 )
 
                                 const { firstName, email, phone, orders } = data.customer;
@@ -86,7 +86,7 @@ class Account extends React.Component {
                                 greeting = (firstName) ? `Welcome back ${firstName}!` : greeting
 
                                 return (
-                                    <>
+                                    <React.Fragment>
                                         <p>{greeting}</p>
 
                                         <h2>Account Info</h2>
@@ -112,7 +112,7 @@ class Account extends React.Component {
                                                     : <p>You haven't placed any orders yet.</p>
                                             }
                                         </div>
-                                    </>
+                                    </React.Fragment>
                                 )
                             }}
                         </Query>

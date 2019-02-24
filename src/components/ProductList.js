@@ -8,7 +8,7 @@ class ProductList extends React.Component {
         )
 
         return (
-            <>
+            <React.Fragment>
                 <ul style={{
                         display: 'grid',
                     gridTemplateColumns: 'repeat(auto-fill, minmax(275px, 1fr))',
@@ -18,7 +18,7 @@ class ProductList extends React.Component {
                 >
                     {productList}
                 </ul>
-            </>
+            </React.Fragment>
         )
     }
 }
