@@ -6,7 +6,7 @@ const CartLink = () => (
     <ContextConsumer>
         {({ set, store }) => {
             return (
-                <>
+                <React.Fragment>
                     &nbsp;
                     <Link
                         to="/cart"
@@ -16,7 +16,7 @@ const CartLink = () => (
                             })
                         }}
                     >Cart ({store.cartCount})</Link>
-                </>
+                </React.Fragment>
             )
         }}
     </ContextConsumer>

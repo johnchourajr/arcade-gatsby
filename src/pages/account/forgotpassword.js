@@ -41,7 +41,7 @@ class ForgotPassword extends React.Component {
 
     render() {
         const pageContent = (
-            <>
+            <React.Fragment>
                 <h1>Forgot Your Password</h1>
                 <Mutation mutation={CUSTOMER_RESET}>
                     {(forgotPassword, { loading }) => {
@@ -105,7 +105,7 @@ class ForgotPassword extends React.Component {
                     }}
                 </Mutation>
                 <Link to={`/account/login`}>Log In</Link>
-            </>
+            </React.Fragment>
         )
 
         return (

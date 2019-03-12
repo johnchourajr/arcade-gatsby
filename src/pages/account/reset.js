@@ -69,7 +69,7 @@ class ResetPassword extends React.Component {
         const pageContent = (
             <ContextConsumer>
                 {({ set }) => {
-                    return <>
+                    return <React.Fragment>
                         <h1>Reset Your Password</h1>
                         <Mutation mutation={CUSTOMER_RESET}>
                             {(resetPassword, { loading }) => {
@@ -142,7 +142,7 @@ class ResetPassword extends React.Component {
                             }}
                         </Mutation>
                         <Link to={`/account/login`}>Log In</Link>
-                    </>
+                    </React.Fragment>
                 }}
             </ContextConsumer>
         )

@@ -69,7 +69,7 @@ class Activate extends React.Component {
         const pageContent = (
             <ContextConsumer>
                 {({ set }) => {
-                    return <>
+                    return <React.Fragment>
                         <h1>Activate Your Account</h1>
                         <p>Create your password to activate your account.</p>
                         <Mutation mutation={CUSTOMER_ACTIVATE}>
@@ -143,7 +143,7 @@ class Activate extends React.Component {
                             }}
                         </Mutation>
                         <Link to={`/account/login`}>Log In</Link>
-                    </>
+                    </React.Fragment>
                 }}
             </ContextConsumer>
         )

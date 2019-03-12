@@ -50,7 +50,7 @@ class Login extends React.Component {
         const pageContent = (
             <ContextConsumer>
                 {({ set }) => {
-                    return <>
+                    return <React.Fragment>
                         <h1>Log In</h1>
                         <Mutation mutation={CUSTOMER_LOGIN}>
                             {(customerLogin, { loading }) => {
@@ -124,7 +124,7 @@ class Login extends React.Component {
                         <Link to={`/account/forgotpassword`}>Forgot Password</Link>
                         <br />
                         <Link to={`/account/register`}>Sign Up</Link>
-                    </>
+                    </React.Fragment>
                 }}
             </ContextConsumer>
         )

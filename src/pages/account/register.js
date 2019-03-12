@@ -47,7 +47,7 @@ class Register extends React.Component {
 
     render() {
         const pageContent = (
-            <>
+            <React.Fragment>
                 <h1>Sign Up</h1>
                 <Mutation mutation={CUSTOMER_CREATE}
                     onError={errors => {
@@ -132,7 +132,7 @@ class Register extends React.Component {
                     }}
                 </Mutation>
                 <Link to={`/account/login`}>Login</Link>
-            </>
+            </React.Fragment>
         )
 
         return (

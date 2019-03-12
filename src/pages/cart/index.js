@@ -7,53 +7,65 @@ import CartTable from '../../components/checkout/CartTable'
 import { ReturnFieldsCheckout } from '../../helpers/gqlFragments'
 
 const CART_ITEMS = gql`
-    query checkoutQuery($id: ID!) {
-        node(id: $id) {
-            ... on Checkout {
-                ...ReturnFieldsCheckout
-            }
-        }
+query checkoutQuery($id: ID!) {
+  node(id: $id) {
+    ... on Checkout {
+      ...ReturnFieldsCheckout
     }
-    ${ReturnFieldsCheckout}
+  }
+}
+${ReturnFieldsCheckout}
 `
 
-const emptyCart = (<>
-    <p>Your cart is currently empty.</p>
-    <Link to={`/`}>Continue Shopping</Link>
-</>)
+const emptyCart = (
+  <React.Fragment>
+    <p>
+      Your cart is currently empty.
+    </p>
+    <Link to={`/`}>
+      Continue Shopping
+    </Link>
+  </React.Fragment>
+)
 
 // TODO: Abstract into helper function.Will be used for sharing carts
 const checkoutUrl = (storeProvider) => {
-    let url = storeProvider.checkout.webUrl
+  let url = storeProvider.checkout.webUrl
 
-    return url;
+  return url;
 }
 
 const Cart = () => (
-    <>
-        <h1>Your Cart</h1>
-        <ContextConsumer>
-            {({ store }) => {
-                if (!store.checkout || store.cartCount === 0) {
-                    return emptyCart
-                }
+  <React.Fragment>
+    <h1>
+      Your Cart
+    </h1>
+    <ContextConsumer>
+      {({ store }) => {
+        if (!store.checkout || store.cartCount === 0) {
+          return emptyCart
+        }
 
-                return (
-                    <>
-                        <CartTable
-                            products={store.checkout.lineItems}
-                            subtotalPrice={store.checkout.subtotalPrice}
-                            totalTax={store.checkout.totalTax}
-                            totalPrice={store.checkout.totalPrice}
-                        />
-                        <Link to={`/`}>Continue Shopping</Link>
-                        <br/>
-                        <a href={checkoutUrl(store)}>Go to Checkout</a>
-                    </>
-                )
-            }}
-        </ContextConsumer>
-    </>
+        return (
+          <React.Fragment>
+            <CartTable
+              products={store.checkout.lineItems}
+              subtotalPrice={store.checkout.subtotalPrice}
+              totalTax={store.checkout.totalTax}
+              totalPrice={store.checkout.totalPrice}
+              />
+            <Link to={`/`}>
+              Continue Shopping
+            </Link>
+            <br/>
+            <a href={checkoutUrl(store)}>
+              Go to Checkout
+            </a>
+          </React.Fragment>
+        )
+      }}
+    </ContextConsumer>
+  </React.Fragment>
 )
 
 export default Cart
