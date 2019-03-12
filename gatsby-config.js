@@ -4,7 +4,7 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: 'Bodega Cloud',
+    title: 'Arcade Coffee',
   },
   plugins: [
     `gatsby-plugin-layout`,
